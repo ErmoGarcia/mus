@@ -1,0 +1,23 @@
+.navigation {
+    margin: 0;
+    padding: 2rem 6rem;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.logo {
+
+}
+
+.routes {
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.link {
+    margin: 2rem;
+}
