@@ -1,23 +1,41 @@
 .navigation {
-    margin: 0;
-    padding: 2rem 6rem;
+    padding: 1rem;
 
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+
+    border-bottom: 2px solid black;
+
+    background: white;
+    color: black;
 }
 
 .logo {
+    width: 4rem;
+    height: auto;
 
+    float: left;
+
+    img {
+        width: 100%;
+    }
 }
 
 .routes {
+    padding: 0;
+    float: right;
+
     list-style: none;
+
+    max-width: 80%;
+
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-around;
+    align-items: center;
 }
 
 .link {
-    margin: 2rem;
+    margin: 0 2rem;
 }
