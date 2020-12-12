@@ -1,5 +1,8 @@
 import styles from 'styles/Switcher.module.scss'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
+
 export default function Switcher({ setTheme, theme }) {
 
     const switchThemes = (event) => {
@@ -8,11 +11,17 @@ export default function Switcher({ setTheme, theme }) {
 
     return (
         <label className={styles.switch}>
-            <input id="switch" type="checkbox"
+            <input
+                type="checkbox"
                 onChange={switchThemes}
                 checked={theme=='dark'}
             />
-            <span className={styles.slider}></span>
+
+            <span className={styles.slider}>
+                <span className={styles.selector}>
+                    <FontAwesomeIcon icon={theme=='dark' ? faSun : faMoon} />
+                </span>
+            </span>
         </label>
     )
 }
