@@ -1,14 +1,17 @@
 import styles from 'styles/Switcher.module.scss'
 
-export default function Switcher({ setTheme }) {
+export default function Switcher({ setTheme, theme }) {
 
-    function themeSwitch(event) {
-        setTheme(event.target.checked ? 'theme-dark' : 'theme-light');
+    const switchThemes = (event) => {
+        setTheme(event.target.checked ? 'dark' : 'light');
     }
 
     return (
         <label className={styles.switch}>
-            <input id="switch" type="checkbox" onClick={themeSwitch} />
+            <input id="switch" type="checkbox"
+                onChange={switchThemes}
+                checked={theme=='dark'}
+            />
             <span className={styles.slider}></span>
         </label>
     )

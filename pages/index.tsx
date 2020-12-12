@@ -2,10 +2,18 @@ import Head from 'next/head'
 import styles from 'styles/Home.module.scss'
 import Navbar from 'components/Navbar'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Home() {
-    const [theme, setTheme] = useState('theme-light');
+    const [theme, setTheme] = useState();
+
+    useEffect(() => {
+        if(!theme){
+            setTheme(localStorage.getItem('theme') || 'light')
+        }
+
+        localStorage.setItem('theme', theme);
+    }, [theme]);
 
     return (
         <div className={theme}>
@@ -14,7 +22,7 @@ export default function Home() {
             <link rel="icon" href="/favicon.ico" />
           </Head>
 
-          <Navbar setTheme={setTheme}></Navbar>
+          <Navbar setTheme={setTheme} theme={theme}></Navbar>
 
           <main className={styles.main}>
               <div>
