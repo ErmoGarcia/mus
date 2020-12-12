@@ -1,7 +1,7 @@
 import styles from 'styles/Navbar.module.scss'
 import Switcher from 'components/switcher/Switcher'
 
-export default function Navbar() {
+export default function Navbar({ setTheme }) {
     return (
         <nav className={styles.navigation}>
             <div className={styles.logo}>
@@ -11,7 +11,9 @@ export default function Navbar() {
                 <li className={styles.link}>Login</li>
                 <li className={styles.link}>Register</li>
                 <li className={styles.link}>History</li>
-                <li className={styles.link}><Switcher></Switcher></li>
+                <li className={styles.link}>
+                    <Switcher setTheme={setTheme}></Switcher>
+                </li>
             </ul>
         </nav>
     )
