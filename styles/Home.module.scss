@@ -1,5 +1,8 @@
 .container {
   padding: 5rem 0;
+  margin: auto;
+
+  width: fit-content;
 
   flex: 1;
   display: flex;
@@ -9,6 +12,9 @@
 }
 
 .author {
+    width: 100%;
+    max-width: 80vw;
+
     text-align: right;
     font-style: italic;
 

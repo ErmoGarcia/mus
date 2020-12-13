@@ -1,17 +1,25 @@
 import styles from 'styles/Navbar.module.scss'
 import Switcher from 'components/switcher/Switcher'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+
 export default function Navbar({ setTheme, theme }) {
     return (
-        <nav className={styles.navigation}>
+        <nav className={styles.navigation}  aria-label="Main Navigation">
             <div className={styles.logo}>
                 <img src="/logo.svg" alt="logo" />
             </div>
-            <ul className={styles.routes}>
-                <li className={styles.link}>Login</li>
-                <li className={styles.link}>Register</li>
-                <li className={styles.link}>History</li>
-                <li className={styles.link}>
+
+            <button type="button" className={styles.dropdown}>
+                <FontAwesomeIcon icon={faBars} />
+            </button>
+
+            <ul className={styles.list}>
+                <li className={styles.item}>Login</li>
+                <li className={styles.item}>Register</li>
+                <li className={styles.item}>History</li>
+                <li className={styles.item}>
                     <Switcher setTheme={setTheme} theme={theme}></Switcher>
                 </li>
             </ul>
