@@ -1,6 +1,8 @@
 import '../styles/globals.scss'
 
-function MyApp({ Component, pageProps }) {
+type AppProps = { Component: any, pageProps: any };
+
+function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />
 }
 
