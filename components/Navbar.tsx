@@ -8,7 +8,11 @@ export default function Navbar({ setTheme, theme }) {
     return (
         <nav className={styles.navigation}  aria-label="Main Navigation">
             <div className={styles.logo}>
-                <img src="/logo.svg" alt="logo" />
+                <img src="/logo.svg"
+                alt="A coin with a women's face on it,
+                 used in the gold suit of the Spanish deck,
+                  known originally as 'Oros'.
+                  Mus Online uses it as its logo" />
             </div>
 
             <button type="button" className={styles.dropdown}>

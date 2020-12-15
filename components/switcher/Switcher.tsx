@@ -10,18 +10,24 @@ export default function Switcher({ setTheme, theme }) {
     }
 
     return (
-        <label className={styles.switch}>
+        <div className={styles.switch}>
             <input
+                id="theme-switch"
+                name="theme-switch"
                 type="checkbox"
                 onChange={switchThemes}
                 checked={theme=='dark'}
             />
-
-            <span className={styles.slider}>
-                <span className={styles.selector}>
-                    <FontAwesomeIcon icon={theme=='dark' ? faSun : faMoon} />
+            <label
+                for="theme-switch"
+                title="Switch between light and dark themes"
+            >
+                <span className={styles.slider}>
+                    <span className={styles.selector}>
+                        <FontAwesomeIcon icon={theme=='dark'? faSun: faMoon} />
+                    </span>
                 </span>
-            </span>
-        </label>
+            </label>
+        </div>
     )
 }
