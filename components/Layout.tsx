@@ -5,7 +5,7 @@ import Head from 'next/head'
 import Navbar from 'components/Navbar'
 
 export default function Layout({children}) {
-    const [theme, setTheme] = useState();
+    const [theme, setTheme] = useState<string | undefined>();
 
     useEffect(() => {
         if(!theme){
