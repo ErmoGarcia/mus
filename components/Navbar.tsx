@@ -4,7 +4,9 @@ import Switcher from 'components/switcher/Switcher'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
-export default function Navbar({ setTheme, theme }) {
+type NavbarProps = {setTheme: any, theme: string};
+
+export default function Navbar({ setTheme, theme }: NavbarProps) {
     return (
         <nav className={styles.navigation}  aria-label="Main Navigation">
             <div className={styles.logo}>

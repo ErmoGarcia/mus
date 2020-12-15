@@ -4,8 +4,10 @@ import styles from 'styles/Layout.module.scss'
 import Head from 'next/head'
 import Navbar from 'components/Navbar'
 
-export default function Layout({children}) {
-    const [theme, setTheme] = useState<string | undefined>();
+type LayoutProps = { children : any};
+
+export default function Layout({children}: LayoutProps) {
+    const [theme, setTheme]: [string, any] = useState("");
 
     useEffect(() => {
         if(!theme){

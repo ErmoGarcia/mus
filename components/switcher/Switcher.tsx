@@ -3,9 +3,11 @@ import styles from 'styles/Switcher.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 
-export default function Switcher({ setTheme, theme }) {
+type SwitcherProps = {setTheme: any, theme: string};
 
-    const switchThemes = (event) => {
+export default function Switcher({ setTheme, theme }: SwitcherProps) {
+
+    const switchThemes = (event: {target: {checked: boolean}}) => {
         setTheme(event.target.checked ? 'dark' : 'light');
     }
 
@@ -19,7 +21,7 @@ export default function Switcher({ setTheme, theme }) {
                 checked={theme=='dark'}
             />
             <label
-                for="theme-switch"
+                htmlFor="theme-switch"
                 title="Switch between light and dark themes"
             >
                 <span className={styles.slider}>
