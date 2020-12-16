@@ -2,7 +2,7 @@ pipeline:
   ssh:
     image: appleboy/drone-ssh
     host: ermo.space
-    username: root
+    username: ermo
     password:
       from_secret: ssh_password
     port: 2255
