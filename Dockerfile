@@ -16,3 +16,9 @@ RUN npm run build
 
 EXPOSE 3000
 CMD [ "npm", "start" ]
+
+LABEL traefik.enable=true
+LABEL traefik.http.routers.docker.entrypoints=websecure
+LABEL traefik.http.routers.docker.rule=Host(`docker.$DOMAIN`)
+LABEL traefik.http.routers.docker.tls=true
+LABEL traefik.http.routers.docker.tls.certresolver=le

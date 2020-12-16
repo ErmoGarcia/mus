@@ -1,16 +1,24 @@
-kind: pipeline
-type: ssh
-name: default
-
-server:
-  host: ermo.space
-  user: ermo
-  password:
-    from_secret: password
-
-steps:
-- name: build
-  commands:
-  - echo hello world
+# kind: pipeline
+# type: ssh
+# name: default
+#
+# server:
+#   host: ermo.space
+#   user: ermo
+#   password:
+#     from_secret: password
+#
+# steps:
+# - name: build
+#   commands:
+#   - echo hello world
   # - cd /opt/docker/mus && git pull
   # - cd .. && docker-compose up -d mus
+
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: mus
+  image: .
