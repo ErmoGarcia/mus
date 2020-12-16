@@ -18,7 +18,7 @@ EXPOSE 3000
 CMD [ "npm", "start" ]
 
 LABEL traefik.enable=true
-LABEL traefik.http.routers.docker.entrypoints=websecure
-LABEL traefik.http.routers.docker.rule=Host(`docker.$DOMAIN`)
-LABEL traefik.http.routers.docker.tls=true
-LABEL traefik.http.routers.docker.tls.certresolver=le
+LABEL traefik.http.routers.mus.entrypoints=websecure
+LABEL traefik.http.routers.mus.rule=Host(`mus.$DOMAIN`)
+LABEL traefik.http.routers.mus.tls=true
+LABEL traefik.http.routers.mus.tls.certresolver=le
