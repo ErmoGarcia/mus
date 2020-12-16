@@ -21,4 +21,4 @@ name: default
 
 steps:
 - name: mus
-  image: .
+  image: Dockerfile
