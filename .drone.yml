@@ -1,18 +1,18 @@
-# kind: pipeline
-# type: ssh
-# name: default
-#
-# server:
-#   host: ermo.space
-#   port: 2255
-#   user: ermo
-#   password:
-#     from_secret: password
-#
-# steps:
-# - name: build
-#   commands:
-#   - echo hello world
+kind: pipeline
+type: ssh
+name: default
+
+server:
+  host: ermo.space
+  port: 2255
+  user: ermo
+  password:
+    from_secret: password
+
+steps:
+- name: build
+  commands:
+  - echo hello world
   # - cd /opt/docker/mus && git pull
   # - cd .. && docker-compose up -d mus
 
@@ -24,15 +24,15 @@
 # - name: mus
 #   image: Dockerfile
 
-kind: pipeline
-type: exec
-name: default
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: greeting
-  commands:
-  - echo hello world
+# kind: pipeline
+# type: exec
+# name: default
+#
+# platform:
+#   os: linux
+#   arch: amd64
+#
+# steps:
+# - name: greeting
+#   commands:
+#   - echo hello world
