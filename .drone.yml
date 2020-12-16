@@ -11,5 +11,6 @@ server:
 steps:
 - name: build
   commands:
-  - cd /opt/docker/mus && git pull
-  - cd .. && docker-compose up -d mus
+  - echo hello world
+  # - cd /opt/docker/mus && git pull
+  # - cd .. && docker-compose up -d mus
