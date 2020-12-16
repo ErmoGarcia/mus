@@ -1,20 +1,15 @@
-kind: pipeline
-type: ssh
-name: default
-
-server:
-  host: ermo.space
-  port: 2255
-  user: ermo
-  password:
-    from_secret: ssh_password
-
-steps:
-- name: build
-  commands:
-  - echo hello world
-  # - cd /opt/docker/mus && git pull
-  # - cd .. && docker-compose up -d mus
+pipeline:
+  ssh:
+    image: appleboy/drone-ssh
+    host: ermo.space
+    username: ermo
+    password:
+      from_secret: ssh_password
+    port: 2255
+    command_timeout: 2m
+    script:
+      - cd /opt/docker/mus && git pull
+      - cd .. && docker-compose up -d mus
 
 # kind: pipeline
 # type: docker
