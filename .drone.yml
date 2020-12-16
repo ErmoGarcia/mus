@@ -1,17 +1,15 @@
 kind: pipeline
-type: docker
+type: ssh
 name: default
 
+server:
+  host: ermo.space
+  user: root
+  password:
+    from_secret: password
+
 steps:
-- name: mus
-  image: node:alpine
+- name: build
   commands:
-  - npm install
-  - npm run build
-  - npm run start
-  labels:
-  - traefik.enable=true
-  - traefik.http.routers.mus.entrypoints=websecure
-  - traefik.http.routers.mus.rule=Host(`drone.$DOMAIN`)
-  - traefik.http.routers.mus.tls=true
-  - traefik.http.routers.mus.tls.certresolver=le
+  - cd /opt/docker/mus && git pull
+  - cd .. && docker-compose up -d mus
