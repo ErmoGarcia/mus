@@ -7,7 +7,7 @@ server:
   port: 2255
   user: ermo
   password:
-    from_secret: password
+    from_secret: ssh_password
 
 steps:
 - name: build
