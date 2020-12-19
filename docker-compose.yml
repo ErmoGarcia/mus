@@ -4,8 +4,6 @@ services:
     container_name: mus
     image: docker.ermo.space/mus
     restart: unless-stopped
-    ports:
-      - 3005:3000
     labels:
       - traefik.enable=true
       - traefik.http.routers.mus.entrypoints=websecure
