@@ -18,8 +18,8 @@ steps:
   volumes:
     - name: docker_socket
       path: /var/run/docker.sock
-    - name: compose_file
-      path: /docker-compose.yml
+    # - name: compose_file
+    #   path: /docker-compose.yml
   commands:
     - docker-compose -f /docker-compose.yml up -d mus
 
@@ -45,6 +45,6 @@ volumes:
     - name: docker_socket
       host:
         path: /var/run/docker.sock
-    - name: compose_file
-      host:
-        path: /opt/docker/docker-compose.yml
+    # - name: compose_file
+    #   host:
+    #     path: /opt/docker/docker-compose.yml
