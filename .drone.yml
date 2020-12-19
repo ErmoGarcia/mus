@@ -5,25 +5,28 @@ name: default
 steps:
   - name: build
     image: plugins/docker
-    registry: docker.ermo.space
-    repo: docker.ermo.space/mus
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
+    settings:
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      repo: docker.ermo.space/mus
+      tags:
+        - latest
 
   - name: ssh
     image: appleboy/drone-ssh
-    host: ermo.space
-    username:
+    settings:
+      host: ermo.space
+      username:
         from_secret: ssh_username
-    password:
-      from_secret: ssh_password
-    port: 2255
-    command_timeout: 2m
-    script:
-      - docker pull docker.ermo.space/mus
-      - cd /opt/docker && docker-compose up -d mus
+      password:
+        from_secret: ssh_password
+      port: 2255
+      command_timeout: 2m
+      script:
+        - docker pull docker.ermo.space/mus
+        - cd /opt/docker && docker-compose up -d mus
         # - cd /opt/docker/mus && git pull
         # - cd .. && docker-compose up -d mus
 

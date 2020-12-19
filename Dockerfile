@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:lts-alpine
 
 RUN mkdir -p /usr/src/app
 ENV PORT 3000
