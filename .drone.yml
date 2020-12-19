@@ -13,21 +13,27 @@ steps:
     repo: docker.ermo.space/mus
     registry: docker.ermo.space
 
-- name: ssh
-  image: appleboy/drone-ssh
-  settings:
-    host: ermo.space
-    username:
-      from_secret: ssh_username
-    password:
-      from_secret: ssh_password
-    port: 2255
-    command_timeout: 2m
-    script:
-      - docker pull docker.ermo.space/mus
-      - cd /opt/docker && docker-compose up -d mus
-      # - cd /opt/docker/mus && git pull
-      # - cd .. && docker-compose up -d mus
+- name: deploy
+  image: docker/compose
+  volumes:
+    - name: docker_socket
+      path: /var/run/docker.sock
+  commands:
+    - docker-compose -f /opt/docker/docker-compose.yml up -d mus
+
+# - name: ssh
+#   image: appleboy/drone-ssh
+#   settings:
+#     host: ermo.space
+#     username:
+#       from_secret: ssh_username
+#     password:
+#       from_secret: ssh_password
+#     port: 2255
+#     command_timeout: 2m
+#     script:
+#       - docker pull docker.ermo.space/mus
+#       - cd /opt/docker && docker-compose up -d mus
 
 trigger:
   branch:
