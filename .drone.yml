@@ -18,8 +18,10 @@ steps:
   volumes:
     - name: docker_socket
       path: /var/run/docker.sock
+    - name: docker-compose_file
+      path: /opt/docker/docker-compose.yml
   commands:
-    - docker-compose -f /opt/docker/docker-compose.yml up -d mus
+    - docker-compose -f /docker-compose.yml up -d mus
 
 # - name: ssh
 #   image: appleboy/drone-ssh
@@ -38,3 +40,11 @@ steps:
 trigger:
   branch:
   - main
+
+volumes:
+    - name: docker_socket
+      host:
+        path: /var/run/docker.sock
+    - name: docker-compose_file
+      host:
+        path: /docker-compose.yml
