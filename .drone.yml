@@ -21,7 +21,7 @@ steps:
     # - name: compose_file
     #   path: /docker-compose.yml
   commands:
-    - docker-compose -f /docker-compose.yml up -d mus
+    - docker-compose up -d
 
 # - name: ssh
 #   image: appleboy/drone-ssh
