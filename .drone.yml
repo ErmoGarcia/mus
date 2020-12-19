@@ -1,5 +1,9 @@
-pipeline:
-  build:
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: build
     image: plugins/docker
     registry: docker.ermo.space
     repo: docker.ermo.space/mus
@@ -8,7 +12,7 @@ pipeline:
     password:
       from_secret: docker_password
 
-  ssh:
+  - name: ssh
     image: appleboy/drone-ssh
     host: ermo.space
     username:
@@ -20,5 +24,9 @@ pipeline:
     script:
       - docker pull docker.ermo.space/mus
       - cd /opt/docker && docker-compose up -d mus
-      # - cd /opt/docker/mus && git pull
-      # - cd .. && docker-compose up -d mus
+        # - cd /opt/docker/mus && git pull
+        # - cd .. && docker-compose up -d mus
+
+trigger:
+  branch:
+  - main
