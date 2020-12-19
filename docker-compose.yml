@@ -9,4 +9,4 @@ services:
       - traefik.http.routers.mus.entrypoints=websecure
       - traefik.http.routers.mus.rule=Host(`mus.$DOMAIN`)
       - traefik.http.routers.mus.tls=true
-      - traefik.http.routers.mus.tls.certresolver=l
+      - traefik.http.routers.mus.tls.certresolver=le
