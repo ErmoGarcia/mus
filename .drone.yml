@@ -1,33 +1,24 @@
 pipeline:
+  build:
+    image: plugins/docker
+    registry: docker.ermo.space
+    repo: docker.ermo.space/mus
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+
   ssh:
     image: appleboy/drone-ssh
     host: ermo.space
-    username: ermo
+    username:
+        from_secret: ssh_username
     password:
       from_secret: ssh_password
     port: 2255
     command_timeout: 2m
     script:
-      - cd /opt/docker/mus && git pull
-      - cd .. && docker-compose up -d mus
-
-# kind: pipeline
-# type: docker
-# name: default
-#
-# steps:
-# - name: mus
-#   image: Dockerfile
-
-# kind: pipeline
-# type: exec
-# name: default
-#
-# platform:
-#   os: linux
-#   arch: amd64
-#
-# steps:
-# - name: greeting
-#   commands:
-#   - echo hello world
+      - docker pull docker.ermo.space/mus
+      - cd /opt/docker && docker-compose up -d mus
+      # - cd /opt/docker/mus && git pull
+      # - cd .. && docker-compose up -d mus
