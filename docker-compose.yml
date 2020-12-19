@@ -12,3 +12,4 @@ services:
       - traefik.http.routers.mus.rule=Host(`mus.ermo.space`)
       - traefik.http.routers.mus.tls=true
       - traefik.http.routers.mus.tls.certresolver=le
+      - traefik.docker.network=traefik_default
