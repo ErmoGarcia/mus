@@ -18,33 +18,14 @@ steps:
   volumes:
     - name: docker_socket
       path: /var/run/docker.sock
-    # - name: compose_file
-    #   path: /docker-compose.yml
   commands:
     - docker-compose up -d
-
-# - name: ssh
-#   image: appleboy/drone-ssh
-#   settings:
-#     host: ermo.space
-#     username:
-#       from_secret: ssh_username
-#     password:
-#       from_secret: ssh_password
-#     port: 2255
-#     command_timeout: 2m
-#     script:
-#       - docker pull docker.ermo.space/mus
-#       - cd /opt/docker && docker-compose up -d mus
 
 trigger:
   branch:
   - main
 
 volumes:
-    - name: docker_socket
-      host:
-        path: /var/run/docker.sock
-    # - name: compose_file
-    #   host:
-    #     path: /opt/docker/docker-compose.yml
+  - name: docker_socket
+    host:
+      path: /var/run/docker.sock
