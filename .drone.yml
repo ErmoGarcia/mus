@@ -11,8 +11,7 @@ steps:
     password:
       from_secret: docker_password
     repo: docker.ermo.space/mus
-    tags:
-      - latest
+    registry: docker.ermo.space
 
 - name: ssh
   image: appleboy/drone-ssh
