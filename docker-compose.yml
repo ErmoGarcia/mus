@@ -13,3 +13,7 @@ services:
       - traefik.http.routers.mus.tls=true
       - traefik.http.routers.mus.tls.certresolver=le
       # - traefik.docker.network=web
+
+networks:
+  web:
+    external: true
