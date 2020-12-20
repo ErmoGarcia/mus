@@ -36,6 +36,18 @@
 
         .item {
             margin: 1rem;
+            font-weight: bold;
+
+            a {
+                color: var(--font-color);
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: var(--color-primary);
+                    // text-decoration: underline;
+                }
+            }
         }
     }
 }
