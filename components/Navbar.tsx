@@ -22,7 +22,7 @@ export default function Navbar({ setTheme, theme }: NavbarProps) {
             </button>
 
             <ul className={styles.list}>
-                <li className={styles.item}>Login</li>
+                <li className={styles.item}><a href='/login'>Login</a></li>
                 <li className={styles.item}>Register</li>
                 <li className={styles.item}>History</li>
                 <li className={styles.item}>
