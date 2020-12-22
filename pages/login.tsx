@@ -1,30 +1,30 @@
 import styles from 'styles/Login.module.scss'
 import Layout from 'components/Layout'
+import FormField from 'components/FormField'
 
 export default function Login() {
     return(
         <Layout>
             <div className={styles.container}>
                 <form action="" method="post">
-                    <div className={styles.field}>
-                        <input type="text" name="username" required />
-                        <label htmlFor="username">
-                            <span className={styles.fieldname}>Username</span>
-                        </label>
+                    <div className={styles.row}>
+                        <FormField fieldname="username"></FormField>
                     </div>
 
-                    <div className={styles.field}>
-                        <input type="text" name="password" required />
-                        <label htmlFor="password">
-                            <span className={styles.fieldname}>Password</span>
-                        </label>
+                    <div className={styles.row}>
+                        <FormField fieldname="password"></FormField>
                     </div>
 
-                    <button className={styles.submit} type="submit">Login</button>
+                    <div className={styles.row}>
+                        <button className={styles.submit} type="submit">Login</button>
+                    </div>
+
+                    <div className={styles.row}>
+                        <div className={styles.separator}>
+                            <span> or </span>
+                        </div>
+                    </div>
                 </form>
-                <div className={styles.separator}>
-                    <span> or </span>
-                </div>
             </div>
         </Layout>
     )

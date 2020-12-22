@@ -1,0 +1,64 @@
+.field {
+    height: 1rem;
+    position: relative;
+
+    // overflow: hidden;
+
+    .input {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+
+        color: var(--font-color);
+
+        background: none;
+        border: none;
+        outline: none;
+
+        &:invalid {
+            box-shadow: none;
+        }
+
+        &:focus + label,
+        &:valid + label {
+            .fieldname {
+                font-size: 0.8rem;
+                transform: translateY(-1.5rem);
+            }
+
+            &::after {
+                transform: translateX(0);
+            }
+        }
+    }
+
+    .label {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        text-transform: capitalize;
+        pointer-events: none;
+
+        border-bottom: 1px solid var(--font-color);
+
+        &::after {
+            content: "";
+            position: absolute;
+            transition: transform 0.3s ease;
+            transform: translateX(-100%);
+
+            width: 100%;
+            height: 100%;
+            border-bottom: 1px solid var(--color-primary);
+        }
+
+        .fieldname {
+            position: absolute;
+            bottom: 0;
+
+            transition: transform 0.3s ease;
+        }
+    }
+}
