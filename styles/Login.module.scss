@@ -73,3 +73,36 @@
         }
     }
 }
+
+.submit {
+    margin-top: 4rem;
+    width: 100%;
+    padding: .8rem;
+
+    font: inherit;
+    color: var(--font-color);
+    background-color: var(--color-primary);
+
+    border: none;
+    border-radius: 5px;
+}
+
+.separator {
+    width: 100%;
+    margin: auto;
+    margin-top: 4rem;
+
+    position: relative;
+
+    border-bottom: 1px solid var(--font-color);
+
+    span {
+        position: absolute;
+        bottom: -0.5rem;
+        left: calc(50% - 1rem);
+        width: 2rem;
+
+        text-align: center;
+        background-color: var(--color-secondary);
+    }
+}

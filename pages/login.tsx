@@ -19,7 +19,12 @@ export default function Login() {
                             <span className={styles.fieldname}>Password</span>
                         </label>
                     </div>
+
+                    <button className={styles.submit} type="submit">Login</button>
                 </form>
+                <div className={styles.separator}>
+                    <span> or </span>
+                </div>
             </div>
         </Layout>
     )
