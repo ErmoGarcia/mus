@@ -12,10 +12,7 @@ steps:
       from_secret: docker_password
     repo: docker.ermo.space/mus
     registry: docker.ermo.space
-    tags:
-      - latest
-      - dev
-      - '1.0'
+    auto_tag: true
 
 - name: deploy
   image: docker/compose
@@ -23,7 +20,8 @@ steps:
     - name: docker_socket
       path: /var/run/docker.sock
   commands:
-    - docker-compose up -d
+    - docker-compose up --force-recreate --build -d
+    - docker image prune -f
 
 trigger:
   branch:

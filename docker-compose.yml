@@ -2,7 +2,7 @@ version: "3"
 services:
   mus:
     container_name: mus
-    image: docker.ermo.space/mus:dev
+    image: docker.ermo.space/mus
     restart: unless-stopped
     networks:
       - web
