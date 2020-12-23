@@ -19,6 +19,13 @@
     align-self: center;
 }
 
+.options {
+    font-size: 0.8rem;
+    .register {
+        float: right;
+    }
+}
+
 .btn {
     width: 100%;
     padding: .8rem;

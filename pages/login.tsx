@@ -19,6 +19,10 @@ export default function Login() {
                         <button className={styles.btn} type="submit">
                             Login
                         </button>
+                        <p className={styles.options}>
+                            <span>Forgot your password</span>
+                            <a className={styles.register} href="/">Sign up</a>
+                        </p>
                     </div>
                 </form>
 
