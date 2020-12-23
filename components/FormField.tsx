@@ -32,7 +32,7 @@ export default function FormField(
             <label className={styles.label} htmlFor={ fieldname }>
                 <span className={styles.fieldname}>{ fieldname }</span>
             </label>
-            { invalid && <p className={styles.invalid}>{ info }</p> }
+            { invalid && <span className={styles.invalid}>{ info }</span> }
         </div>
     )
 }
