@@ -20,6 +20,7 @@ steps:
     - name: docker_socket
       path: /var/run/docker.sock
   commands:
+    - docker-compose build
     - docker-compose up -d
 
 trigger:
