@@ -2,8 +2,6 @@
     height: 1rem;
     position: relative;
 
-    // overflow: hidden;
-
     .input {
         width: 100%;
         position: absolute;
@@ -19,8 +17,8 @@
             box-shadow: none;
         }
 
-        &:focus + label,
-        &:valid + label {
+        &:valid + .label,
+        &:focus + .label {
             .fieldname {
                 font-size: 0.8rem;
                 transform: translateY(-1.5rem);
@@ -60,5 +58,12 @@
 
             transition: transform 0.3s ease;
         }
+    }
+
+    .invalid {
+        color: var(--error-color);
+        font-size: 0.8rem;
+        position: absolute;
+        top: .5rem;
     }
 }

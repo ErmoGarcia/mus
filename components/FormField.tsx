@@ -1,6 +1,24 @@
 import styles from 'styles/FormField.module.scss'
+import { useState } from 'react'
 
-export default function FormField({ fieldname } : { fieldname : string }) {
+type FormFieldProps = {
+    fieldname: string,
+    validator?(val: string): boolean,
+    info?: string
+};
+
+export default function FormField(
+    { fieldname , validator, info } : FormFieldProps
+) {
+
+    const [invalid, setInvalid] : [boolean, any] = useState(false);
+
+    const checkValid = (event: {target: {value: string}}) => {
+        if (validator) {
+            setInvalid(!validator(event.target.value));
+        }
+    }
+
     return(
         <div className={styles.field}>
             <input
@@ -9,10 +27,12 @@ export default function FormField({ fieldname } : { fieldname : string }) {
                 type="text"
                 name={ fieldname }
                 required
+                onChange={checkValid}
             />
             <label className={styles.label} htmlFor={ fieldname }>
                 <span className={styles.fieldname}>{ fieldname }</span>
             </label>
+            { invalid && <p className={styles.invalid}>{ info }</p> }
         </div>
     )
 }

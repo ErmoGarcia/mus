@@ -2,22 +2,24 @@ import styles from 'styles/Register.module.scss'
 import Layout from 'components/Layout'
 import FormField from 'components/FormField'
 
-export default function Login() {
+import valid_user from 'lib/validators'
+
+export default function Register() {
     return(
         <Layout>
             <div className={styles.container}>
                 <h1 className="screen-reader-text">Register Form</h1>
                 <form className={styles.form} action="" method="post">
                     <div className={styles.item}>
-                        <FormField fieldname="username"></FormField>
+                        <FormField fieldname="username" validator={valid_user}></FormField>
                     </div>
 
                     <div className={styles.item}>
-                        <FormField fieldname="email"></FormField>
+                        <FormField fieldname="email" validator={valid_user}></FormField>
                     </div>
 
                     <div className={styles.item}>
-                        <FormField fieldname="password"></FormField>
+                        <FormField fieldname="password" validator={valid_user}></FormField>
                     </div>
 
                     {
