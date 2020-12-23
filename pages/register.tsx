@@ -6,6 +6,7 @@ export default function Login() {
     return(
         <Layout>
             <div className={styles.container}>
+                <h1 className="screen-reader-text">Register Form</h1>
                 <form className={styles.form} action="" method="post">
                     <div className={styles.item}>
                         <FormField fieldname="username"></FormField>
