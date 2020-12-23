@@ -26,7 +26,7 @@ export default function Navbar({ setTheme, theme }: NavbarProps) {
 
             <ul className={styles.list}>
                 <li className={styles.item}><Link href="/login"><a>Login</a></Link></li>
-                <li className={styles.item}><Link href="#"><a>Register</a></Link></li>
+                <li className={styles.item}><Link href="/register"><a>Register</a></Link></li>
                 <li className={styles.item}><Link href="#"><a>History</a></Link></li>
                 <li className={styles.item}>
                     <Switcher setTheme={setTheme} theme={theme}></Switcher>

@@ -6,6 +6,7 @@ export default function Login() {
     return(
         <Layout>
             <div className={styles.container}>
+                <h1 className="screen-reader-text">Login Form</h1>
                 <form className={styles.form} action="" method="post">
                     <div className={styles.item}>
                         <FormField fieldname="username"></FormField>
@@ -21,7 +22,9 @@ export default function Login() {
                         </button>
                         <p className={styles.options}>
                             <span>Forgot your password</span>
-                            <a className={styles.register} href="/">Sign up</a>
+                            <a className={styles.register} href="/register">
+                                Sign up
+                            </a>
                         </p>
                     </div>
                 </form>
