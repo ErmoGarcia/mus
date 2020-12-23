@@ -2,7 +2,7 @@ import styles from 'styles/Login.module.scss'
 import Layout from 'components/Layout'
 import FormField from 'components/FormField'
 
-import valid_user from 'lib/validators'
+import {valid_user, valid_pass} from 'lib/validators'
 
 export default function Login() {
     return(
@@ -19,7 +19,11 @@ export default function Login() {
                     </div>
 
                     <div className={styles.item}>
-                        <FormField fieldname="password"></FormField>
+                        <FormField
+                            fieldname="password"
+                            validator={valid_pass}
+                            info="Password must contain at least one number and one uppercase letter"
+                        ></FormField>
                     </div>
 
                     <div className={styles.item}>

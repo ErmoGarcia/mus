@@ -2,7 +2,7 @@ import styles from 'styles/Register.module.scss'
 import Layout from 'components/Layout'
 import FormField from 'components/FormField'
 
-import valid_user from 'lib/validators'
+import {valid_user, valid_pass} from 'lib/validators'
 
 export default function Register() {
     return(
@@ -11,7 +11,11 @@ export default function Register() {
                 <h1 className="screen-reader-text">Register Form</h1>
                 <form className={styles.form} action="" method="post">
                     <div className={styles.item}>
-                        <FormField fieldname="username" validator={valid_user}></FormField>
+                        <FormField
+                            fieldname="username"
+                            validator={valid_user}
+                            info="Username must be between 4 and 16 characters long"
+                        ></FormField>
                     </div>
 
                     <div className={styles.item}>
@@ -19,7 +23,11 @@ export default function Register() {
                     </div>
 
                     <div className={styles.item}>
-                        <FormField fieldname="password" validator={valid_user}></FormField>
+                        <FormField
+                            fieldname="password"
+                            validator={valid_pass}
+                            info="Password must contain at least one number and one uppercase letter"
+                        ></FormField>
                     </div>
 
                     {
