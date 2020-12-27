@@ -3,19 +3,16 @@ import { useState } from 'react'
 
 type FormFieldProps = {
     fieldname: string,
-    validator?(val: string): boolean,
-    info?: string
+    validator?(val: string): string | null,
 };
 
-export default function FormField(
-    { fieldname , validator, info } : FormFieldProps
-) {
+export default function FormField({ fieldname , validator } : FormFieldProps) {
 
-    const [invalid, setInvalid] : [boolean, any] = useState(false);
+    const [invalid, setInvalid] : [string | null, any] = useState(null);
 
     const checkValid = (event: {target: {value: string}}) => {
         if (validator) {
-            setInvalid(!validator(event.target.value));
+            setInvalid(validator(event.target.value));
         }
     }
 
@@ -23,16 +20,16 @@ export default function FormField(
         <div className={styles.field}>
             <input
                 id={ fieldname }
-                className={styles.input}
+                className={ invalid ? styles.invalid : styles.valid }
                 type="text"
                 name={ fieldname }
                 required
-                onChange={checkValid}
+                onChange={ checkValid }
             />
             <label className={styles.label} htmlFor={ fieldname }>
                 <span className={styles.fieldname}>{ fieldname }</span>
             </label>
-            { invalid && <span className={styles.invalid}>{ info }</span> }
+            { invalid && <span className={styles.error}>{ invalid }</span> }
         </div>
     )
 }

@@ -1,15 +1,37 @@
-export function valid_user(username : string) : boolean {
-    if (username.length >= 4 && username.length <= 16) {
-        return true;
+export function validUser(username : string) : string | null {
+    if (username.length < 4) {
+        return "Username must be at least 4 characters long";
     }
-    return false;
+
+    if (username.length > 16) {
+        return "Username must be at most 16 characters long";
+    }
+
+    return null;
 }
 
-export function valid_pass(pass : string) : boolean {
-    const hasNumber = (val : string) => /^.*[0-9]+.*[A-Z]+.*$/.test(val);
+export function validPass(pass : string) : string | null {
 
-    if (pass.length >= 4 && hasNumber(pass) ) {
-        return true;
+    if (pass.length < 4) {
+        return "Password must be at least 4 characters long";
     }
-    return false;
+
+    if ( !/^.*[0-9]+.*$/.test(pass) ) {
+        return "Password must contain at least one number";
+    }
+
+    if ( !/^.*[A-Z]+.*$/.test(pass) ) {
+        return "Password must contain at least one capital letter";
+    }
+
+    return null;
+}
+
+export function validEmail(email : string) : string | null {
+
+    if ( !/^.*@.*\..*$/.test(email) ) {
+        return "Introduce a valid email";
+    }
+
+    return null;
 }
